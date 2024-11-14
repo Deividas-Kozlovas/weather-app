@@ -1,4 +1,4 @@
-import handleWeatherFetch from "../main";
+import handleWeatherFetch from "../services/WeatherApp";
 
 export default class WeatherEvent {
   constructor() {

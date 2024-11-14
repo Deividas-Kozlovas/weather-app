@@ -1,7 +1,11 @@
 export default class WeatherApi {
-  async fetchWeather(url) {
+  constructor(url) {
+    this.url = url;
+  }
+
+  async fetchWeather() {
     try {
-      const response = await fetch(url);
+      const response = await fetch(this.url);
       if (!response.ok) throw new Error("City not found");
       const data = await response.json();
       return data.main.temp;

@@ -10,9 +10,16 @@ export default class EmojiUI {
   }
 
   getEmoji(temperature) {
-    if (temperature >= 30) return "☀️";
-    if (temperature >= 20) return "😎";
-    if (temperature >= 10) return "☁️";
-    return "❄️";
+    let emoji;
+    if (temperature >= 25) {
+      emoji = "🌞";
+    } else if (temperature >= 15) {
+      emoji = "🌤️";
+    } else if (temperature >= 5) {
+      emoji = "☁️";
+    } else {
+      emoji = "❄️";
+    }
+    return emoji;
   }
 }
