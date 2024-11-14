@@ -16,5 +16,5 @@ mix.webpackConfig({
 
 mix
   .js("src/js/main.js", "public/js")
-  .sass("src/scss/style.scss", "public/css")
+  .sass("src/scss/style.scss", "css")
   .setPublicPath("public");
