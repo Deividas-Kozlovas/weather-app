@@ -3,21 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather app</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="contianer">
-      <main>
-        <form>
-          <input type="text" id="cityInput" placeholder="City" />
-          <button id="weatherButton" type="submit">Submit</button>
+    <div class="container">
+      <main class="main-content">
+        <h2>Weather app</h2>
+        <form class="form">
+          <div class="form__group">
+            <input
+              type="text"
+              id="cityInput"
+              class="form__input"
+              placeholder="Enter city"
+            />
+            <button id="weatherButton" type="submit" class="form__button">
+              Submit
+            </button>
+          </div>
         </form>
+
         <div id="showWeather" class="weather">
           <div id="showTemperature" class="weather__temperature"></div>
           <div id="showEmoji" class="weather__emoji"></div>
         </div>
-        <div id="showError" class="error-container"></div>
+
+        <div id="showError" class="error__container"></div>
       </main>
       <script src="/public/js/main.js" type="module"></script>
     </div>
