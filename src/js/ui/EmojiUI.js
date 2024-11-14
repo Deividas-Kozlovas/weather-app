@@ -9,6 +9,11 @@ export default class EmojiUI {
     this.showEmoji.textContent = this.getEmoji(temperature);
   }
 
+  clearWeather() {
+    this.showTemperature.textContent = "";
+    this.showEmoji.textContent = "";
+  }
+
   getEmoji(temperature) {
     let emoji;
     if (temperature >= 25) {
