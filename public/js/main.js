@@ -167,40 +167,50 @@ function handleWeatherFetch(_x) {
 }
 function _handleWeatherFetch() {
   _handleWeatherFetch = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(city) {
-    var apiKey, baseUrl, url, weatherApi, temperature, displayWeather;
+    var cachedTemperature, displayWeather, apiKey, baseUrl, url, weatherApi, temperature, _displayWeather;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
+          cachedTemperature = localStorage.getItem(city);
+          if (!cachedTemperature) {
+            _context.next = 5;
+            break;
+          }
+          displayWeather = new _ui_EmojiUI__WEBPACK_IMPORTED_MODULE_1__["default"]();
+          displayWeather.displayWeather(cachedTemperature);
+          return _context.abrupt("return");
+        case 5:
           apiKey = "44f6b8893fdb5402a2b8a04b66037fd0";
           baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=".concat(city, "&appid=").concat(apiKey);
           url = "".concat(baseUrl, "&units=metric");
-          _context.prev = 3;
+          _context.prev = 8;
           weatherApi = new _api_WeatherApi__WEBPACK_IMPORTED_MODULE_0__["default"](url);
-          _context.next = 7;
+          _context.next = 12;
           return weatherApi.fetchWeather();
-        case 7:
+        case 12:
           temperature = _context.sent;
           if (!(temperature === null)) {
-            _context.next = 11;
+            _context.next = 16;
             break;
           }
           console.error("Failed to fetch weather data.");
           return _context.abrupt("return");
-        case 11:
-          temperature = Math.floor(temperature);
-          displayWeather = new _ui_EmojiUI__WEBPACK_IMPORTED_MODULE_1__["default"]();
-          displayWeather.displayWeather(temperature);
-          _context.next = 19;
-          break;
         case 16:
-          _context.prev = 16;
-          _context.t0 = _context["catch"](3);
+          temperature = Math.floor(temperature);
+          localStorage.setItem(city, temperature);
+          _displayWeather = new _ui_EmojiUI__WEBPACK_IMPORTED_MODULE_1__["default"]();
+          _displayWeather.displayWeather(temperature);
+          _context.next = 25;
+          break;
+        case 22:
+          _context.prev = 22;
+          _context.t0 = _context["catch"](8);
           console.error("Error:", _context.t0);
-        case 19:
+        case 25:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[3, 16]]);
+    }, _callee, null, [[8, 22]]);
   }));
   return _handleWeatherFetch.apply(this, arguments);
 }
