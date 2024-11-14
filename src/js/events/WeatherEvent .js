@@ -14,8 +14,8 @@ export default class WeatherEvent {
   bindEvents() {
     this.weatherButton.addEventListener("click", (e) => {
       e.preventDefault();
+      const clearWeather = new EmojiUI();
       clearWeather.clearWeather();
-      this.renderError.clearError();
       const city = this.cityInput.value.trim();
 
       this.renderError.clearError();
